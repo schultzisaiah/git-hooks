@@ -9,6 +9,11 @@
 # If done properly, then git will automatically run this script before every
 # commit/push!
 
-mvn test 2>&1 | tee commit.log
-grep -q "BUILD SUCCESS" commit.log
-exit $?
+ci_skip_command = '\[ci-skip\]'
+
+if (git log --oneline origin/master..HEAD | grep -v "$ci_skip_command")
+then
+	mvn test 2>&1 | tee commit.log
+	grep -q "BUILD SUCCESS" commit.log
+	exit $?
+fi
