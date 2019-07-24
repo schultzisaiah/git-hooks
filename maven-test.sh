@@ -8,6 +8,10 @@
 #
 # If done properly, then git will automatically run this script before every
 # commit/push!
+#
+# If you'd like to support a "ci skip" indicator in commit messages, that can
+# also be done. If all commits involved in this hook have that indicator, the
+# the hook will be skipped.
 
 ci_skip_command = '\[ci-skip\]'
 
