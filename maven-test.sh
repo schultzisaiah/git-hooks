@@ -13,7 +13,7 @@
 # also be done. If all commits involved in this hook have that indicator, the
 # the hook will be skipped.
 
-ci_skip_command = '\[ci-skip\]'
+ci_skip_command='\[ci-skip\]'
 
 if (git log --oneline origin/master..HEAD | grep -v "$ci_skip_command")
 then
